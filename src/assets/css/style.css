@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+body{ 
+    font-family: 'Jost', sans-serif;
+}
+
+:root {
+    --primary-color: #dc4f72;
+}
+
+.title h1{
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+    position: relative;
+    margin: 0 auto;
+}
+
+a:hover{
+    color: unset;
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+/* Header */
+
+header {
+    background: #000;
+    padding: 10px 0;
+}
+
+.header__container {
+    width: 95%;
+    margin: auto;
+}
+
+.header__logo img{
+    cursor: pointer;
+}
+
+.header__content, .header__right{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__right .header__search i, .header__right .header__search span{
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all .3s;
+}
+
+.header__right .header__search i {
+    margin: 0 5px;
+    color: var(--primary-color);
+}
+
+/* .header__right .header__search i:hover {
+    color: #fff;
+} */
+
+.header__right .header__search span:hover{
+    color: var(--primary-color);
+}
+
+.header__right .header__cart {
+    margin: 0 25px;
+    position: relative;
+    /* z-index: 1; */
+    cursor: pointer;
+}
+
+.header__right .header__cart i {
+    font-size: 20px;
+    color: #fff;
+    transition: all .3s;
+}
+
+.header__right .header__cart i:hover {
+    opacity: .9;
+}
+
+.header__right .header__cart span{
+    position: absolute;
+    top: -10px;
+    right: -14px;
+    padding-right: 1px;
+    width: 18px;
+    height: 18px;
+    line-height: 19px;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    z-index: 1;
+    text-align: center;
+    font-size: 13px;
+}
+
+.header__right .header__login button{
+    padding: 7px 25px;
+    outline: none;
+    border: none;
+    background: transparent;
+    box-shadow: 0 0 0 2rem var(--primary-color) inset;
+    color: #fff;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: all .4s;
+}
+
+.header__right .header__login button:hover{
+    box-shadow: 0 0 0 1px var(--primary-color) inset;
+    color: var(--primary-color);
+}
+
+/* Navbar */
+nav {
+    padding: 10px 0;
+    background: #F8F8F8;
+}
+.nav__container {
+    width: 95%;
+    margin: auto;
+}
+
+.nav__content .nav__list {
+    padding: 0;
+    margin: 0;
+}
+
+.nav__content .nav__list li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav__content .nav__list li a {
+    color: #000;
+    transition: all .3s;
+}
+
+.nav__content .nav__list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    right: 50%;
+    bottom: 0px;
+    background: var(--primary-color);
+    transition: all .3s;
+    color: #fff;
+}
+
+.nav__content .nav__list li.active a {
+    color: var(--primary-color);
+}
+
+.nav__content .nav__list li.active a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    right: 0;
+    bottom: 0px;
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.nav__content .nav__list li a:hover{
+    color: var(--primary-color);
+}
+
+.nav__content .nav__list li a:hover::after {
+    right: 0%;
+    width: 100%;
+}
+
+/* Footer */
+
+footer {
+    background: #F8F8F8;
+}
+
+.footer__container {
+    width: 85%;
+    margin: auto;
+}
+
+.footer__content {
+    padding: 20px 0;
+}
+
+.footer__content .footer__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__body .footer__item {
+    width: calc(100% / 3);
+    height: 140px;
+    padding: 0 60px;
+    border-right: 1px solid #DEDDDC;
+}
+
+.footer__body .footer__item:last-child {
+    border: unset;
+}
+
+.footer__body .footer__item h6 {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+.footer__body .footer__item ul li {
+    margin: 5px 0;
+}
+
+.footer__body .footer__item ul li a{
+    color: #000;
+    transition: all .3s;
+    font-weight: 500;
+}
+
+.footer__body .footer__item ul li a:hover{
+    color: var(--primary-color);
+}
+
+.footer__copyright {
+    background: #D9D9D9;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 600;
+}
+
+.footer__copyright span span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--primary-color);
+}
