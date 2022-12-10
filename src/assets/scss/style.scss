@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+@import './Base/global';
+@import './Helpers/variables';
+@import './Helpers/mixin';
+
+@import './Layouts/header';
+@import './Layouts/navbar';
+@import './Layouts/home';
+@import './Layouts/detail';
+@import './Layouts/cart';
+@import './Layouts/login';
+@import './Layouts/profile';
+@import './Layouts/register';
+@import './Layouts/search';
+@import './Layouts/footer';
