@@ -1,0 +1,68 @@
+@mixin title () {
+        color: $primary-color;
+        text-align: center;
+        font-weight: bold;
+        font-size: 45px;
+        position: relative;
+        margin: 50px auto;
+}
+
+@mixin button () {
+    padding: 8px 25px;
+    outline: none;
+    border: none;
+    background: transparent;
+    box-shadow: 0 0 0 2rem $primary-color inset;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all .4s;
+
+        &:hover{
+            box-shadow: 0 0 0 1px $primary-color inset;
+            color: $primary-color;
+        }
+}
+
+@mixin input () {
+    .form__input {
+        position: relative;
+        height: 80px;
+
+        input{
+            padding: 10px 16px;
+            width: 100%;
+            outline: none;
+            border: 1px solid $primary-color;
+            border-radius: 5px;
+            margin: 0;
+
+            &:valid ~ span, &:focus ~ span {
+                transform: translateY(-21px);
+                padding: 0 15px;
+                background: white;
+                color: $primary-color;
+            }
+        }
+
+        span {
+            position: absolute;
+            top: 11px;
+            left: 18px;
+            pointer-events: none;
+            transition: all .3s;
+            color: #8f8f8f;
+        }
+
+        .fa-eye{
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: .9;
+            }
+        }
+    }
+}

@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./assets/css/style.css";
+import './assets/scss/style.scss';
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomeTemplate from "./templates/HomeTemplate";
-import Home from "./components/Home";
-import Detail from "./components/Detail";
-import Carts from "./components/Carts";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Search from "./components/Search";
-import Profile from "./components/Profile";
+import Home from "./pages/Home/Home";
+import Detail from "./pages/Detail/Detail";
+import Carts from "./pages/Cart/Carts";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import Search from "./pages/Search/Search";
+import Profile from "./pages/Profile/Profile";
 import { Provider } from "react-redux";
 import { store } from "./redux/ConfigStore";
 
