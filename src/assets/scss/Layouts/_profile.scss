@@ -1,0 +1,103 @@
+.profile {
+    .title {
+        h1{
+            @include title();
+        }
+    }
+
+    .profile__wrapper {
+
+        .profile__container {
+            width: 95%;
+            margin: auto;
+
+            .profile__content {
+                display: flex;
+                align-items: flex-end;
+
+                .profile__avt{
+                    margin-right: 50px;
+                     img {
+                        width: 220px;
+                        height: 220px;
+                     }
+                }
+
+                .profile__info{
+                    width: 100%;
+                    height: 200px;
+                    align-items: flex-end;
+                    @include input();
+
+                    .form__input{
+                        height: unset;
+
+                        span {
+                            top: 11px;
+                            left: 30px;
+                        }
+                    }
+
+                    .form__gender {
+                        text-align: left;
+                        font-size: 20px;
+                        display: flex;
+                        align-items: flex-start;
+        
+                        span {
+                            color: $primary-color;
+                        }
+        
+                        label {
+                            margin: 0 20px;
+                            display: flex;
+                            align-items: center;
+                            input {
+                                display: none;
+                            }
+        
+                            #male {
+                                &:checked {
+                                    + .radio{
+                                        &::after {
+                                            transform: scale(1);
+                                        }
+                                    }
+                                }
+                            }
+        
+                            .radio{
+                                display: inline-block;
+                                margin-right: 8px;
+                                width: 20px;
+                                height: 20px;
+                                padding: 2px;
+                                border-radius: 50%;
+                                border: 2px solid $primary-color;
+        
+                                &::after {
+                                    content: '';
+                                    width: 100%;
+                                    height: 100%;
+                                    background: $primary-color;
+                                    display: block;
+                                    border-radius: 50%;
+                                    transform: scale(0);
+                                    transition: all .1s;
+                                }
+                            }
+                        }
+                    }
+
+                    .profile__update{
+                        text-align: center;
+                        button {
+                            @include button()
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
