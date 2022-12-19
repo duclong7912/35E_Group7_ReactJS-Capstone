@@ -27,7 +27,7 @@
 @mixin input () {
     .form__input {
         position: relative;
-        height: 80px;
+        height: 90px;
 
         input{
             padding: 10px 16px;
@@ -42,19 +42,24 @@
                 padding: 0 15px;
                 background: white;
                 color: $primary-color;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: 600;
             }
         }
 
         span {
             position: absolute;
-            top: 11px;
+            top: 12px;
             left: 18px;
             pointer-events: none;
             transition: all .3s;
             color: #8f8f8f;
         }
 
-        .fa-eye{
+        .fa-eye, .fa-eye-slash{
+            width: 20px;
+            height: 20px;
             position: absolute;
             top: 16px;
             right: 18px;
@@ -64,5 +69,22 @@
                 opacity: .9;
             }
         }
+
+        .messError {
+            text-align: left;
+            color: #df1010;
+            
+            &::first-letter{
+                text-transform: capitalize;
+            }
+
+            
+        }
+
+        // &:nth-child(3) {
+        //     .messError {
+        //         font-size: 13px;
+        //     }
+        // }
     }
 }

@@ -1,14 +1,29 @@
 
 header {
-    background: #000;
-    padding: 10px 0;
-
+    background: #F8BBD0;
+    height: 70px;
+    display: flex;
+    align-items: center;
     .header__container {
         width: 95%;
         margin: auto;
 
-        .header__logo img{
+        .header__logo{ 
+            img {
             cursor: pointer;
+            width: 40px;
+            height: 40px;
+            }
+            span {
+                color: $primary-color;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 2px;
+            }
+        }
+
+        .header__content{
+            padding: 10px 0;
         }
 
         .header__content, .header__right{
@@ -72,7 +87,59 @@ header {
             .header__login{
                 button {
                     @include button();
-                    letter-spacing: 1px;
+                    padding: 8px 35px;
+                }
+            }
+
+            .header__profile {
+                position: relative;
+                img {
+                    width: 50px;
+                    height: 50px;
+                    cursor: pointer;
+                    border-radius: 50%;
+                }
+
+                .header__profile-option {
+                    position: absolute;
+                    top: 60px;
+                    right: -20px;
+                    width: 250px;
+                    box-shadow: 0 1px 10px 0 #D9D9D9 ;
+                    background: white;
+                    padding: 10px;
+                    border-radius: 5px;
+
+                    &::after {
+                        content: '';
+                        width: 10px;
+                        height: 10px;
+                        position: absolute;
+                        top: -5px;
+                        right: 40px;
+                        transform: rotate(45deg);
+                        background: white;
+                    }
+
+                    ul {
+                        li {
+                            cursor: pointer;
+                            padding: 10px 15px;
+                            transition: all .3s;
+                            border-radius: 5px;
+                            i {
+                                color: $primary-color;
+                                margin-right: 10px;
+                            }
+                            span {
+                                color: #000;
+                            }
+
+                            &:hover {
+                                background: #f0f2f5;
+                            }
+                        }
+                    }
                 }
             }
         }
