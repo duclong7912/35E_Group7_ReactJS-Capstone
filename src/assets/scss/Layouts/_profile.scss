@@ -8,96 +8,181 @@
     .profile__wrapper {
 
         .profile__container {
-            width: 95%;
+            width: 90%;
             margin: auto;
-
             .profile__content {
-                display: flex;
-                align-items: flex-end;
-
-                .profile__avt{
-                    margin-right: 50px;
-                     img {
-                        width: 220px;
-                        height: 220px;
-                     }
-                }
-
-                .profile__info{
-                    width: 100%;
-                    height: 200px;
+                .profile__wrap {
+                    display: flex;
                     align-items: flex-end;
-                    @include input();
 
-                    .form__input{
-                        height: unset;
-
-                        span {
-                            top: 11px;
-                            left: 30px;
+                    .profile__avt{
+                        margin-right: 50px;
+                        img {
+                            width: 220px;
+                            height: 220px;
+                            border-radius: 50%;
                         }
                     }
 
-                    .form__gender {
-                        text-align: left;
-                        font-size: 20px;
-                        display: flex;
-                        align-items: flex-start;
-        
-                        span {
-                            color: $primary-color;
-                        }
-        
-                        label {
-                            margin: 0 20px;
-                            display: flex;
-                            align-items: center;
-                            input {
-                                display: none;
+                    .profile__info{
+                        width: 100%;
+                        height: 200px;
+                        align-items: flex-end;
+                        @include input();
+
+                        .form__input{
+                            height: 65px;
+
+                            span {
+                                top: -9px;
+                                left: 30px;
+                                padding: 0 15px;
+                                background: white;
+                                color: $primary-color;
+                                border-radius: 20px;
+                                font-size: 13px;
+                                font-weight: 600;
                             }
-        
-                            #male {
-                                &:checked {
-                                    + .radio{
-                                        &::after {
-                                            transform: scale(1);
+                        }
+
+                        .form__gender {
+                            text-align: left;
+                            font-size: 20px;
+                            display: flex;
+                            align-items: flex-start;
+            
+                            span {
+                                color: $primary-color;
+                            }
+            
+                            label {
+                                margin: 0 20px;
+                                display: flex;
+                                align-items: center;
+                                input {
+                                    display: none;
+                                }
+            
+                                #male {
+                                    &:checked {
+                                        + .radio{
+                                            &::after {
+                                                transform: scale(1);
+                                            }
                                         }
                                     }
                                 }
-                            }
-        
-                            .radio{
-                                display: inline-block;
-                                margin-right: 8px;
-                                width: 20px;
-                                height: 20px;
-                                padding: 2px;
-                                border-radius: 50%;
-                                border: 2px solid $primary-color;
-        
-                                &::after {
-                                    content: '';
-                                    width: 100%;
-                                    height: 100%;
-                                    background: $primary-color;
-                                    display: block;
+                                #female {
+                                    &:checked {
+                                        + .radio{
+                                            &::after {
+                                                transform: scale(1);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .radio{
+                                    display: inline-block;
+                                    margin-right: 8px;
+                                    width: 20px;
+                                    height: 20px;
+                                    padding: 2px;
                                     border-radius: 50%;
-                                    transform: scale(0);
-                                    transition: all .1s;
+                                    border: 2px solid $primary-color;
+            
+                                    &::after {
+                                        content: '';
+                                        width: 100%;
+                                        height: 100%;
+                                        background: $primary-color;
+                                        display: block;
+                                        border-radius: 50%;
+                                        transform: scale(0);
+                                        transition: all .1s;
+                                    }
+                                }
+                            }
+                        }
+
+                        .profile__update{
+                            text-align: center;
+                            button {
+                                @include button()
+                            }
+                        }
+
+                    }
+                }
+
+                .profile__tabs {
+                    display: flex;
+                    font-size: 30px;
+                    margin: 30px 0 60px;
+                    font-weight: 500;
+                    .profile__tab{
+                        padding: 0 50px 0 0;
+                        cursor: pointer;
+                    }
+                    
+                }
+
+                .profile__tabs-content{
+                    
+                    h6{
+                        color: $primary-color;
+                    }
+                    .table {
+                        padding: 0 50px;
+
+                        tr {
+                            th{
+                                color: $primary-color;
+                                background-color: #f0f2f5;
+                                text-align: center;
+                            }
+                            td{
+                                text-align: center;
+                                img{
+                                    width: 90px;
+                                    height: 50px;
+                                    object-fit: cover;
                                 }
                             }
                         }
                     }
 
-                    .profile__update{
+                    .profile__tabs-info{
+                        border: 1px solid $primary-color;
+                        border-radius: 5px;
+                        padding: 30px;
+                        margin-bottom: 50px;
+                    }
+                }
+
+                .profile__pages{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    margin-top: 100px;
+                    .profile__page {
+                        margin-left: 5px;
+                        width: 25px;
+                        height: 25px;
+                        border: 1px solid #DFE3E8;
+                        border-radius: 3px;
                         text-align: center;
-                        button {
-                            @include button()
+                        cursor: pointer;
+                        color: $primary-color;
+                        font-weight: 500;
+                        transition: all .3s;
+
+                        &:hover {
+                            background: #f0f2f5;
                         }
                     }
-
                 }
-            }
+            }    
         }
     }
 }

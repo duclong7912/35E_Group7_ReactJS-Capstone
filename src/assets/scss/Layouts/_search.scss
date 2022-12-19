@@ -1,0 +1,30 @@
+.search {
+    margin-top: 50px;
+    .search__container {
+        width: 90%;
+        margin: auto;
+        .search__wrapper {
+            .search__input {
+                display: flex;
+                align-items: center;
+                @include input();
+                width: 30%;
+                .form__input {
+                    height: unset;
+                }
+
+                button {
+                    @include button();
+                    padding: 10px 20px;
+                    margin-left: 15px;
+                }
+            }
+        }
+
+        .title {
+            h1 {
+                @include title();
+            }
+        }
+    }
+}

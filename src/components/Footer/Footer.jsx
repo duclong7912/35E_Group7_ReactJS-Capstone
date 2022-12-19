@@ -1,7 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
 const Footer = () => {
+
+  const { userLogin } = useSelector(state => state.userReducer)
+
   return (
     <footer>
       <div className="footer__container">
@@ -28,15 +32,15 @@ const Footer = () => {
             <div className="footer__item">
               <h6>Register</h6>
               <ul>
-                <li><NavLink to={'/register'}>Register</NavLink></li>
-                <li><NavLink to={'/login'}>Login</NavLink></li>
+                <li><NavLink to={userLogin ? '/home' : '/users/register'}>Register</NavLink></li>
+                <li><NavLink to={userLogin ? '/home' : '/users'}>Login</NavLink></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
       <div className="footer__copyright">
-        <span>© 2022 Cybersoft All Rights Reserved | Design Theme by <span>Trương Tấn Khải.</span></span>
+        <span>© 2022 Cybersoft All Rights Reserved | Design Theme by <a href='https://www.facebook.com/kido.kaitou'>Trương Tấn Khải.</a></span>
       </div>
     </footer>
   )
