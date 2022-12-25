@@ -1,6 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+
+  const handleBars = () => {
+    document.querySelector('body').classList.toggle("open-bars")
+  }
+
   return (
     <nav>
       <div className="nav__container">

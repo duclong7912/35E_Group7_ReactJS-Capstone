@@ -5,7 +5,17 @@
     align-items: center;
     justify-content: center;
 
+    @include responsive(large) {
+        min-height: 600px;
+    }
+
     .template__login-container{
+        @include responsive(large) {
+            width: 60%;
+        }
+        @include responsive(medium) {
+            width: 85%;
+        }
         width: 65%;
         margin: auto;
 
@@ -15,6 +25,9 @@
             box-shadow: 0 1px 30px 0 #db355e;
 
             .template__card{
+                @include responsive(large) {
+                    display: none;
+                }
                 width: 50%;
                 height: 570px;
                 position: relative;

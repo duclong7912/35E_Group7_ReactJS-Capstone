@@ -1,0 +1,8 @@
+// ------------------- width < 576px ----------------- //
+
+@include responsive(medium) {
+    nav{
+        padding: 0;
+        display: none;
+    }
+}

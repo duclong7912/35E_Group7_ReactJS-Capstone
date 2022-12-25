@@ -5,6 +5,9 @@
         font-size: 45px;
         position: relative;
         margin: 50px auto;
+        @include responsive(small){
+            font-size: 35px;
+        }
 }
 
 @mixin button () {
@@ -73,18 +76,41 @@
         .messError {
             text-align: left;
             color: #df1010;
-            
+            @include responsive(medium) {
+                font-size: 15px;
+            }
             &::first-letter{
                 text-transform: capitalize;
             }
 
             
         }
+    }
+}
 
-        // &:nth-child(3) {
-        //     .messError {
-        //         font-size: 13px;
-        //     }
-        // }
+@mixin responsive($breakpoint) {
+    @if $breakpoint == extra-large {
+        // width < 1200px
+        @media (max-width: 75em) {
+            @content;
+        }
+    };
+    @if $breakpoint == large {
+        // width < 992px
+        @media (max-width: 62em) {
+            @content;
+        }
+    };
+    @if $breakpoint == medium {
+        // width < 768px
+        @media (max-width: 48em) {
+            @content;
+        }
+    };
+    @if $breakpoint == small {
+        // width < 576px
+        @media (max-width: 36em) {
+            @content;
+        }
     }
 }

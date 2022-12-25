@@ -15,4 +15,12 @@
 @import './Layouts/register';
 @import './Layouts/search';
 @import './Layouts/footer';
-@import './Layouts/loginTempate';
+@import './components/loginTempate';
+@import './components/updateProfile';
+@import './components/changePassword';
+@import './responsive/resHeader';
+@import './responsive/resNavbar';
+@import './responsive/resFooter';
+@import './responsive/resLogin';
+@import './responsive/resRegister';
+@import './responsive/resProfile';

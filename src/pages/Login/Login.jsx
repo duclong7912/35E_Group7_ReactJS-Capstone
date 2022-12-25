@@ -8,6 +8,7 @@ import HashLoader from "react-spinners/HashLoader";
 import { useDispatch, useSelector } from 'react-redux'
 import { loginAPI, loginAction, loginFacebookAPI } from '../../redux/reducers/userReducer/userReducer';
 import FacebookLogin from 'react-facebook-login';
+import logo from '../../assets/img/cyberlogo-white.png'
 
 const Login = () => {
 
@@ -49,7 +50,7 @@ const Login = () => {
         setTimeout(() => {
           setLoading(false);
           navigate("./home")
-        },3000)
+        },2000)
     toast.success('Login successfully.', {
       position: "top-center",
       autoClose: 3000,
@@ -71,7 +72,6 @@ const Login = () => {
   }, [errors])
   
   const responseFacebook = (response) => {
-    console.log(response);
     const actionFacebookLogin = loginFacebookAPI(response.accessToken);
     dispatch(actionFacebookLogin);
   }
@@ -94,6 +94,10 @@ const Login = () => {
 
   return (
     <div className="login text-center">
+      <NavLink to='/home' className="logo">
+        <img src={logo} alt="logo" />
+        <span>CYBERSOFT</span>
+      </NavLink>
       <ToastContainer />
       <div className="login__wrapper">
         {loading ? <HashLoader color="#dc4f72" size={50} /> : 
@@ -122,10 +126,6 @@ const Login = () => {
             <span>Don’t have an account? <NavLink to={'/users/register'}>Register</NavLink></span>
           </div>
           <div className="form__social">
-            {/* <button className='btn-fb'>
-              <i className="fa-brands fa-facebook"></i>
-              <span>Continue with Facebook</span>
-            </button> */}
             <FacebookLogin
               appId="911566656678249"
               autoLoad={false}

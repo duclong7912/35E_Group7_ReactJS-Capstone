@@ -4,9 +4,22 @@ header {
     height: 70px;
     display: flex;
     align-items: center;
+    
     .header__container {
         width: 95%;
         margin: auto;
+
+        #check, label{
+            display: none;
+        }
+
+        .nav__list{
+            display: none;
+        }
+        
+
+
+
 
         .header__logo{ 
             img {

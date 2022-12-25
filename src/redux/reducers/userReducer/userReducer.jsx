@@ -41,7 +41,7 @@ export const loginAPI = (value) => {
       method: 'POST',
       data: value,
     }).catch(err => {
-      toast.error('Email or password are incorrect.', {
+      toast.error('Email or password is incorrect.', {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -105,8 +105,8 @@ export const profileAPI = () => {
           Authorization: `Bearer ${token?.accessToken}`
       }
     }).catch(err => {
-      if (err.response.status === 401) {
-        history.push('/users')
+      if (err.response.status === 401 || err.response.status === 400) {
+        history.push('/home')
       }
     })
 
@@ -124,4 +124,32 @@ export const getProductFavouiteAPI = () => {
       
     })
    }
+}
+
+export const updateProfileAPI = (value) => {
+
+  return async (dispatch) => {
+    const result = await axios({
+      url: 'https://shop.cyberlearn.vn/api/Users/updateProfile',
+      method: 'POST',
+      data: value,
+      headers: {
+        Authorization: `Bearer ${getCookie(TOKEN)}`
+      }
+    })
+  }
+}
+
+export const changePasswordAPI = (value) => {
+
+  return async (dispatch) => {
+    const result = await axios({
+      url: 'https://shop.cyberlearn.vn/api/Users/changePassword',
+      method: "POST",
+      data: value,
+      headers: {
+        Authorization: `Bearer ${getCookie(TOKEN)}`
+      }
+    })
+  }
 }

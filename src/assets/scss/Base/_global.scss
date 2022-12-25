@@ -3,6 +3,15 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+body.open-modal {
+    overflow: hidden;
+    padding-right: 17px;
+}
+
+body.open-bars{
+    overflow: hidden;
+}
+
 a:hover{
     color: unset;
     text-decoration: none;
