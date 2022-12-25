@@ -1,0 +1,75 @@
+// ------------------- width < 576px ----------------- //
+@include responsive(small) {
+    footer {
+        .footer__container{
+            width: 95%;
+            .footer__content{
+                .footer__body{
+                    flex-wrap: wrap;
+                    
+                    .footer__item{
+                        max-width: 50%;
+                        flex: 0 0 50%;
+                        padding: 0 15px;
+                        height: unset;
+                        font-size: 14px;
+                        
+                        h6{
+                            font-size: 15px;
+                        }
+
+                        &:nth-child(2){
+                            border-right: unset;
+                        }
+
+                        &:last-child{
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+        .footer__copyright{
+            font-size: 9px;
+        }
+    }
+}
+
+// ------------------- width < 768px ----------------- //
+@include responsive(medium) { 
+    footer { 
+        .footer__container{
+            width: 90%;
+            .footer__content{ 
+
+                .footer__body{
+                    flex-wrap: wrap;
+                    
+                    .footer__item{
+                        max-width: 50%;
+                        flex: 0 0 50%;
+                        padding: 0 20px;
+                        height: unset;
+                        font-size: 16px;
+                        
+                        h6{
+                            font-size: 16px;
+                        }
+
+                        &:nth-child(2){
+                            border-right: unset;
+                        }
+
+                        &:last-child{
+                            margin-top: 20px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer__copyright{
+            font-size: 14px;
+        }
+    }
+}

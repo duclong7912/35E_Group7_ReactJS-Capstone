@@ -1,0 +1,73 @@
+@include responsive(extra-large) { 
+    .login {
+        .login__wrapper{
+            padding: 30px;
+            .form__info{
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@include responsive(large) {
+    .login {
+        width: 100%;
+        position: relative;
+        .logo {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            img{
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+            span{
+                color: $primary-color;
+                font-weight: 700;
+                letter-spacing: 1px;
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+        .login__wrapper{
+            height: 430px;
+            border-radius: 10px;
+            padding: 0;
+
+            .login__wrap {
+                padding:0 20px;
+            }
+            .title {
+                h1 {
+                    font-size: 35px;
+                    margin-bottom: 20px;
+                    padding: 0;
+                }
+            }
+            
+            .form__content{
+                .form__input {
+                    height: 80px;
+                }
+            }
+
+            .form__info { 
+                font-size: 16px;
+            }
+            
+            .form__social {
+                .btn-fb{
+                    width: 95%;
+                    font-size: 15px;
+                    i{
+                        font-size: 16px;
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

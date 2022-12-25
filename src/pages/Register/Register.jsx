@@ -49,6 +49,7 @@ const Register = () => {
   useEffect(() => {
     const fetchValues = async () => {  
       if (Object.keys(errors).length === 0 && submit) {
+        console.log(values);
         await axios({
           url: 'https://shop.cyberlearn.vn/api/Users/signup',
           method: 'POST',
@@ -105,55 +106,57 @@ const Register = () => {
             <h1>Register</h1>
           </div>
           <form className="form__register" onSubmit={handleSubmit}>
-            <div className="form__input">
-              <input id='email' name='email' type="text" value={values.email} required onChange={handleChange}/>
-              <span>Email</span>
-              {errors.email && <div className='messError'>{errors.email}</div>}
-            </div>
-            <div className="form__input">
-              <input id='name' name='name' type="text" value={values.name} required onChange={handleChange}/>
-              <span>Name</span>
-              {errors.name && <div className='messError'>{errors.name}</div>}
-            </div>
-            <div className="form__input">
-              <input id='password' name='password' type={passwordIcon ? 'text' : 'password'} value={values.password} required onChange={handleChange}/>
-              <span>Password</span>
-              <a onClick={handleChangePasswordIcon}>{passwordIcon ? <i className="fa-solid fa-eye-slash"></i> : <i className="fa-solid fa-eye"></i>}</a>
-              {errors.password && <div className='messError'>{errors.password}</div>}
-            </div>
-            <div className="form__input">
-              <input id='confirmPassword' name='confirmPassword' type={confirmPasswordIcon ? 'text' : 'password'} value={values.confirmPassword} required onChange={handleChange}/>
-              <span>Confirm password</span>
-              <a onClick={handleChangeConfirmPasswordIcon}>{confirmPasswordIcon ? <i className="fa-solid fa-eye-slash"></i> : <i className="fa-solid fa-eye"></i>}</a>
-              {errors.confirmPassword && <div className='messError'>{errors.confirmPassword}</div>}
-            </div>
-            <div className="form__input">
-              <input id='phone' name='phone' type="text" value={values.phone} required onChange={handleChange}/>
-              <span>Phone</span>
-              {errors.phone && <div className='messError'>{errors.phone}</div>}
-            </div>
-            <div className="gender">
-              <div className="form__gender">
-                <span>Gender:</span>
-                <label htmlFor="male">
-                  <input type="radio" id='male' name='gender' value={true} onChange={handleChange}/>
-                  <span className="radio"></span>
-                  <span>Male</span>
-                </label>
-                <label htmlFor="female">
-                  <input type="radio" id='female' name='gender' value={false} onChange={handleChange}/>
-                  <span className="radio"></span>
-                  <span>Female</span>
-                </label>
+            <div className="form__content">
+              <div className="form__input">
+                <input id='email' name='email' type="text" value={values.email} required onChange={handleChange}/>
+                <span>Email</span>
+                {errors.email && <div className='messError'>{errors.email}</div>}
               </div>
-              {errors.gender && <div className='messError'>{errors.gender}</div>}
-            </div>
-            <div className="form__submit-register">
-              <button type='submit' className='btn-submit-register'>Submit</button>
+              <div className="form__input">
+                <input id='name' name='name' type="text" value={values.name} required onChange={handleChange}/>
+                <span>Name</span>
+                {errors.name && <div className='messError'>{errors.name}</div>}
+              </div>
+              <div className="form__input">
+                <input id='password' name='password' type={passwordIcon ? 'text' : 'password'} value={values.password} required onChange={handleChange}/>
+                <span>Password</span>
+                <a onClick={handleChangePasswordIcon}>{passwordIcon ? <i className="fa-solid fa-eye-slash"></i> : <i className="fa-solid fa-eye"></i>}</a>
+                {errors.password && <div className='messError'>{errors.password}</div>}
+              </div>
+              <div className="form__input">
+                <input id='confirmPassword' name='confirmPassword' type={confirmPasswordIcon ? 'text' : 'password'} value={values.confirmPassword} required onChange={handleChange}/>
+                <span>Confirm password</span>
+                <a onClick={handleChangeConfirmPasswordIcon}>{confirmPasswordIcon ? <i className="fa-solid fa-eye-slash"></i> : <i className="fa-solid fa-eye"></i>}</a>
+                {errors.confirmPassword && <div className='messError'>{errors.confirmPassword}</div>}
+              </div>
+              <div className="form__input">
+                <input id='phone' name='phone' type="text" value={values.phone} required onChange={handleChange}/>
+                <span>Phone</span>
+                {errors.phone && <div className='messError'>{errors.phone}</div>}
+              </div>
+              <div className="gender">
+                <div className="form__gender">
+                  <span>Gender:</span>
+                  <label htmlFor="male">
+                    <input type="radio" id='male' name='gender' value={true} onChange={handleChange}/>
+                    <span className="radio"></span>
+                    <span>Male</span>
+                  </label>
+                  <label htmlFor="female">
+                    <input type="radio" id='female' name='gender' value={false} onChange={handleChange}/>
+                    <span className="radio"></span>
+                    <span>Female</span>
+                  </label>
+                </div>
+                {errors.gender && <div className='messError'>{errors.gender}</div>}
+              </div>
+              <div className="form__submit-register">
+                <button type='submit' className='btn-submit-register'>Submit</button>
+              </div>
             </div>
           </form>
           <div className="form__info">
-          <span>Do you already have an account? <NavLink to={'/users/login'}>Login</NavLink></span>
+          <span>Already have an account? <NavLink to={'/users/login'}>Login</NavLink></span>
           </div>
         </div>
         }

@@ -1,0 +1,300 @@
+@include responsive(large) {
+    .profile {
+        .profile__wrapper{
+            .profile__container{
+                .profile__content{
+                    .profile__wrap{
+                        .profile__avt{
+                            img{
+                                width: 180px;
+                                height: 180px;
+                            }
+                        }
+
+                        .profile__info{
+                            
+                            .form__gender {
+                                font-size: 17px;
+                                margin-bottom: 15px;
+                                label{
+                                    margin:0 10px;
+                                    .radio{ 
+                                        width: 20px;
+                                        height: 20px;
+                                        margin-right: 5px;
+                                    }
+                                }
+                            }
+
+                            .profile__update{
+                                padding: 0 5px;
+                                text-align: center;
+                                button {
+                                    padding: 10px 21px;
+                                    font-size: 15px;
+                                }
+                            }
+                            .profile__update-password{
+                                padding: 0 5px;
+                                button {
+                                    padding: 10px;
+                                    font-size: 15px;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .profile__tabs{
+                        font-size: 25px;
+                        margin-top: 60px;
+                        .profile__tab {
+                            padding: 0 35px 0 0;
+                        }
+                    }
+                    
+                    .profile__tabs-content{
+
+                        .profile__tabs-info{
+                            padding: 20px;
+                            margin-bottom: 30px;
+                            h6{
+                                font-size: 15px;
+                            }
+                            
+                            .table {
+                                font-size: 15px;
+                                th{
+                                    padding: 10px 0;
+                                }
+                                td{
+                                    padding: 10px 5px;
+                                    img{
+                                        width: 80px;
+                                        height: 50px;
+                                    }
+                                    &:nth-child(2){
+                                        padding-top: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    .profile__pages{
+                        margin-top: 50px;
+                        .profile__page{
+                            width: 20px;
+                            height: 20px;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------------------ width < 768px -----------------//
+@include responsive(medium) {
+    .profile {
+        .profile__wrapper{
+            .profile__container{
+                .profile__content{
+                    .profile__wrap{
+                        flex-direction: column;
+                        align-items: center;
+
+                        .profile__avt{
+                            margin: 0;
+                            margin-bottom: 20px;
+                            img{
+                                width: 180px;
+                                height: 180px;
+                            }
+                        }
+
+                        .profile__info{
+                            height: 350px;
+                            
+                            .form__gender {
+                                font-size: 18px;
+                                margin-bottom: 15px;
+                                label{
+                                    margin:0 10px;
+                                    .radio{ 
+                                        width: 18px;
+                                        height: 18px;
+                                        margin-right: 5px;
+                                    }
+                                }
+                            }
+
+                            .profile__update{
+                                padding: 0 5px;
+                                text-align: center;
+                                button {
+                                    padding: 10px 21px;
+                                    font-size: 15px;
+                                }
+                            }
+                            .profile__update-password{
+                                padding: 0 5px;
+                                button {
+                                    padding: 10px;
+                                    font-size: 15px;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .profile__tabs{
+                        font-size: 23px;
+                        .profile__tab {
+                            padding: 0 30px 0 0;
+                        }
+                    }
+                    
+                    .profile__tabs-content{
+
+                        .profile__tabs-info{
+                            padding: 10px;
+                            margin-bottom: 30px;
+                            h6{
+                                font-size: 15px;
+                            }
+                            
+                            .table {
+                                font-size: 14px;
+                                th{
+                                    padding: 10px 0;
+                                }
+                                td{
+                                    padding: 10px 5px;
+                                    img{
+                                        width: 60px;
+                                        height: 40px;
+                                    }
+                                    &:nth-child(2){
+                                        padding-top: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    .profile__pages{
+                        margin-top: 50px;
+                        .profile__page{
+                            width: 20px;
+                            height: 20px;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------------------ width < 576px -----------------//
+
+@include responsive(small) {
+    .profile {
+        .profile__wrapper{
+            .profile__container{
+                .profile__content{
+                    .profile__wrap{
+                        flex-direction: column;
+                        align-items: center;
+
+                        .profile__avt{
+                            margin: 0;
+                            margin-bottom: 20px;
+                            img{
+                                width: 150px;
+                                height: 150px;
+                            }
+                        }
+
+                        .profile__info{
+                            height: 350px;
+                            
+                            .form__gender {
+                                font-size: 16px;
+                                margin-bottom: 15px;
+                                label{
+                                    margin:0 5px;
+                                    .radio{ 
+                                        width: 17px;
+                                        height: 17px;
+                                        margin-right: 5px;
+                                    }
+                                }
+                            }
+
+                            .profile__update{
+                                padding: 0 5px;
+                                text-align: center;
+                                button {
+                                    padding: 10px 21px;
+                                    font-size: 12px;
+                                }
+                            }
+                            .profile__update-password{
+                                padding: 0 5px;
+                                button {
+                                    padding: 10px;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .profile__tabs{
+                        font-size: 21px;
+                        .profile__tab {
+                            padding: 0 25px 0 0;
+                        }
+                    }
+                    
+                    .profile__tabs-content{
+
+                        .profile__tabs-info{
+                            padding: 10px;
+                            margin-bottom: 30px;
+                            h6{
+                                font-size: 11px;
+                            }
+                            
+                            .table {
+                                font-size: 9px;
+                                th{
+                                    padding: 10px 0;
+                                }
+                                td{
+                                    padding: 10px 5px;
+                                    img{
+                                        width: 40px;
+                                        height: 30px;
+                                    }
+                                    &:nth-child(2){
+                                        padding-top: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    .profile__pages{
+                        margin-top: 50px;
+                        .profile__page{
+                            width: 20px;
+                            height: 20px;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

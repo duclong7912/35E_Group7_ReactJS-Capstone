@@ -1,0 +1,109 @@
+// --------------- width < 1200px --------------//
+@include responsive(extra-large) { 
+    .register {
+
+        .register__wrapper { 
+            padding: 0;
+            .form__wrap{
+                width: 85%;
+            }
+            .form__register { 
+                width: 100%;
+                margin: auto;
+
+                .form__input{
+
+                    .messError {
+                        font-size: 16px;
+                    }
+
+                    &:nth-child(3), &:nth-child(4){
+                        .messError {
+                            font-size: 12px;
+                        }
+                    }
+                    
+                }
+
+                .form__gender{
+                    font-size: 17px;
+
+                    label{ 
+                        margin: 0 10px;
+
+                        .radio {
+                            width: 19px;
+                            height: 19px;
+                            margin-right: 5px;
+                        }
+                    }
+
+
+                }
+                
+            }
+            
+            .form__info{
+                font-size: 16px;
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+
+
+// --------------- width < 992px --------------//
+@include responsive(large) { 
+    .register {
+        width: 100%;
+        position: relative;
+
+        .register__wrapper { 
+            padding: 0;
+            border-radius: 10px;
+            .form__wrap{
+                width: 100%;
+            }
+            .form__register { 
+                width: 100%;
+                margin: auto;
+                .form__content {
+                    padding: 0 20px;
+                }
+                .form__input{
+
+                    .messError {
+                        font-size: 13px;
+                    }
+                }
+
+                .form__gender{
+                    font-size: 16px;
+
+                    label{ 
+                        margin: 0 8px;
+
+                        .radio {
+                            width: 17px;
+                            height: 17px;
+                            margin-right: 5px;
+                        }
+                    }
+
+
+                }
+                .form__submit-register{
+                    .btn-submit-register{
+                        padding: 8px 30px;
+                    }
+                }
+            }
+            
+            .form__info{
+                font-size: 15px;
+                padding: 0 10px;
+            }
+        }
+    }
+}

@@ -1,6 +1,8 @@
 .login {
-    width: 50%;
-
+    width: 50%; 
+    .logo {
+        display: none;
+    }
     .login__wrapper {
         // display: inline-block;
         background: #fff;

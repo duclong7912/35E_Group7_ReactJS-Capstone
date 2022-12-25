@@ -12,6 +12,17 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @include responsive(large) {
+            .register__wrap {
+                width: 70%;
+            }
+        }
+        @include responsive(small) {
+            .register__wrap {
+                width: unset;
+            }
+        }
         .title {
             h1 {
                 color: $primary-color;

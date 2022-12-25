@@ -3,12 +3,16 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { profileAPI, profileAction } from '../../redux/reducers/userReducer/userReducer';
 import Orders from '../../components/Order/Orders'
-
+import UpdateProfile from "../../components/UpdateProfile/UpdateProfile";
+import ModalChangePassword from '../../components/ModalChangePassword/ModalChangePassword';
+import { NavLink } from 'react-router-dom';
 const Profile = () => {
   const { profile } = useSelector(state => state.userReducer);
 
   const [history, setHistory] = useState(true);
-  const [favorite, setFavorite] = useState(false)
+  const [favorite, setFavorite] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [changePassword, setChangePassword] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(()=> {
@@ -26,11 +30,41 @@ const Profile = () => {
     setFavorite(false);
   }
 
+  const handleOpenModal = () => {
+    document.querySelector('body').classList.toggle("open-modal");
+    setOpenModal(true)
+  }
+
+  const handleCloseModal = (value) => {
+    document.querySelector('body').classList.remove("open-modal");
+    setOpenModal(value)
+    setChangePassword(value);
+  }
+
+  const modalChangePassword = () => {
+    document.querySelector('body').classList.toggle("open-modal");
+    setChangePassword(true);
+  }
+
+  const closeModal = (value) => {
+    setOpenModal(value)
+  }
+
   return (
     <div className="profile">
       <div className="title">
         <h1>Profile</h1>
       </div>
+      {openModal && 
+        <div className="updateProfile">
+          <UpdateProfile closeModal={handleCloseModal}/>
+        </div>
+      }
+      {changePassword && 
+      <div className="changePassword">
+        <ModalChangePassword closeModal={handleCloseModal}/>
+      </div>
+      }
       <div className="profile__wrapper">
         <div className="profile__container">
           <div className="profile__content">
@@ -39,23 +73,23 @@ const Profile = () => {
                 <img src={profile.avatar} alt="avatar" />
               </div>
               <div className="profile__info row">
-                <div className="form__input col-6">
+                <div className="form__input col-12 col-md-6">
                   <input type="email" value={profile?.email} disabled/>
                   <span>Email</span>
                 </div>
-                <div className="form__input col-6">
+                <div className="form__input col-12 col-md-6">
                   <input type="text" value={profile?.name} disabled/>
                   <span>Name</span>
                 </div>
-                <div className="form__input col-6">
+                <div className="form__input col-12 col-md-6">
                   <input type="number" value={profile?.phone} disabled/>
                   <span>Phone</span>
                 </div>
-                <div className="form__input col-6">
+                <div className="form__input col-12 col-md-6">
                   <input type="password" disabled/>
                   <span>Password</span>
                 </div>
-                <div className="form__gender col-12">
+                <div className="form__gender col-12 ">
                   <span>Gender:</span>
                   <label htmlFor="male">
                     <input type="radio" id='male' name='gender' disabled checked={profile?.gender ? true : false} />
@@ -68,8 +102,11 @@ const Profile = () => {
                     <span>Female</span>
                   </label>
                 </div>
-                <div className="profile__update col-12">
-                  <button>Update</button>
+                <div className="profile__update col-6">
+                  <button onClick={handleOpenModal}>Change profile</button>
+                </div>
+                <div className="profile__update-password col-6">
+                  <button onClick={modalChangePassword}>Change password</button>
                 </div>
               </div>
             </div>

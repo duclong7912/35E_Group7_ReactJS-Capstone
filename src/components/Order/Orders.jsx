@@ -17,11 +17,11 @@ const orderHistory = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                {item.orderDetail.map((prod, i) => {
+                {item?.orderDetail?.map((prod, i) => {
                   return  <tr key={i}>
                     <td>{item.id}</td>
                     <td><img src={prod.image} alt="product" /></td>
-                    <td>{prod.name}</td>
+                    <td>{prod.name.length > 15 ? prod.name.substring(0,15) + '...' : prod.name}</td>
                     <td>${prod.price}</td>
                     <td>{prod.quantity}</td>
                     <td>${prod.price}</td>
