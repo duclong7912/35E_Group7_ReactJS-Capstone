@@ -72,8 +72,21 @@ const Login = () => {
   }, [errors])
   
   const responseFacebook = (response) => {
-    const actionFacebookLogin = loginFacebookAPI(response.accessToken);
-    dispatch(actionFacebookLogin);
+    if(response.status !== 'unknown') {
+      const actionFacebookLogin = loginFacebookAPI(response.accessToken);
+      dispatch(actionFacebookLogin);
+    } else{
+      toast.error('Login facebook failed.', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   }
 
   const validation = (value) => {

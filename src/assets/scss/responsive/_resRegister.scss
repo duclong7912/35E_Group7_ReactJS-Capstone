@@ -68,13 +68,11 @@
             .form__register { 
                 width: 100%;
                 margin: auto;
-                .form__content {
-                    padding: 0 20px;
-                }
+                
                 .form__input{
 
                     .messError {
-                        font-size: 13px;
+                        font-size: 16px;
                     }
                 }
 
@@ -101,7 +99,7 @@
             }
             
             .form__info{
-                font-size: 15px;
+                font-size: 14px;
                 padding: 0 10px;
             }
         }

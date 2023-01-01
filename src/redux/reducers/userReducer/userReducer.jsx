@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getCookie, getLocalStorage, setCookie, setLocalStorage, TOKEN, USER } from '../../../util/config';
+import { eraseCookie, getCookie, getLocalStorage, removeLocalStorage, setCookie, setLocalStorage, TOKEN, USER } from '../../../util/config';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { history } from '../../../index';
@@ -105,8 +105,10 @@ export const profileAPI = () => {
           Authorization: `Bearer ${token?.accessToken}`
       }
     }).catch(err => {
-      if (err.response.status === 401 || err.response.status === 400) {
-        history.push('/home')
+      removeLocalStorage(USER);
+      eraseCookie(TOKEN);
+      if (err.response?.status === 401) {
+        history.push('/home');
       }
     })
 

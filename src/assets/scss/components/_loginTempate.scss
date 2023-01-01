@@ -10,10 +10,16 @@
     }
 
     .template__login-container{
+        @include responsive(extra-large) {
+            width: 75%;
+        }
         @include responsive(large) {
-            width: 60%;
+            width: 45%;
         }
         @include responsive(medium) {
+            width: 60%;
+        }
+        @include responsive(small) {
             width: 85%;
         }
         width: 65%;
