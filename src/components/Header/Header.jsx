@@ -7,7 +7,8 @@ import { eraseCookie, removeLocalStorage, TOKEN, USER } from '../../util/config'
 import { profileAPI } from '../../redux/reducers/userReducer/userReducer'
 const Header = () => {
   const { userLogin, profile } = useSelector(state => state.userReducer)
-  const [profileClick, setProfileClick] = useState(false)
+  const [profileClick, setProfileClick] = useState(false);
+  const [barsClick, setBarsClick] = useState(false)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logout = () => {
@@ -18,16 +19,23 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const actionProfile = profileAPI();
-    dispatch(actionProfile);
+    if(userLogin){
+      const actionProfile = profileAPI();
+      dispatch(actionProfile);
+    }
   }, [])
+
+  const handleBars = () => {
+    setProfileClick(false);
+    setBarsClick(!barsClick)
+  }
 
   return (
     <header>
       <div className="header__container">
         <input type="checkbox" id='check'/>
-        <label htmlFor="check" onClick={() => setProfileClick(false)}>
-          <i className="fa-solid fa-bars"></i>
+        <label htmlFor="check" onClick={handleBars}>
+          {barsClick ? <i class="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
         </label>
           <ul className='nav__list'>
             <li className='active'><a href="">Home</a></li>

@@ -1,29 +1,143 @@
 .search {
-    margin-top: 50px;
-    .search__container {
-        width: 90%;
+    padding: 50px 0;
+    background: #f5f5fa;
+    .search__container{
+        width: 95%;
         margin: auto;
-        .search__wrapper {
-            .search__input {
-                display: flex;
-                align-items: center;
-                @include input();
-                width: 30%;
-                .form__input {
-                    height: unset;
-                }
+        .search__form {
+            display: flex;
+            align-items: center;
+            @include input();
+            width: 100%;
+            margin-bottom: 20px;
+            .form__input {
+                height: unset;
+                width: 20%;
+            }
 
-                button {
-                    @include button();
-                    padding: 10px 20px;
-                    margin-left: 15px;
-                }
+            button {
+                @include button();
+                padding: 10px 20px;
+                margin-left: 15px;
             }
         }
+        
+        .search__content{
+            display: flex;
 
-        .title {
-            h1 {
-                @include title();
+            .search__category{
+                width: 20%;
+                background: #fff;
+                padding: 20px 10px;
+                border-radius: 5px;
+                    h1{
+                        @include title();
+                        margin: 0;
+                        font-size: 30px;
+                        padding-bottom: 20px;
+                        cursor: pointer;
+                    }
+
+                    .category__list{
+                        margin-top: 10px;
+                        ul {
+                            li{
+                                padding: 5px 10px;
+                                transition: all .3s;
+                                border-radius: 5px;
+                                cursor: pointer;
+                                margin-top: 15px;
+                                display: flex;
+                                align-items: center;
+                                img{
+                                    width: 40px;
+                                    height: 40px;
+                                    border-radius: 50%;
+                                    margin-right: 10px;
+                                }
+                                a{
+                                    font-weight: 600;
+                                    height: 40px;
+                                    line-height: 42px;
+
+                                }
+                                &:hover {
+                                    background: #f0f2f5;
+                                }
+                            }
+                            
+                            li.active{
+                                background: #f0f2f5;
+                            }
+                            
+                        }
+                    }
+            }
+
+            .search__result{
+                width: 80%;
+                background: #fff;
+                padding: 20px 10px;
+                border-radius: 5px;
+                margin-left: 20px;
+                .title{
+                    h1{
+                        @include title();
+                        margin: 0;
+                        font-size: 30px;
+                        padding-bottom: 10px;
+                    }
+                }
+                .search__filter{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #f5f5fa;
+
+                    .filter__content{
+                        display: flex;
+                        align-items: center;
+                    }
+                    span{
+                        &:first-child{
+                            flex: 1;
+                        }
+                    }
+                    i{
+                        color: $primary-color;
+                        margin-right: 5px;
+                    }
+                    span{
+                        font-weight: 600;
+                        color: $primary-color;
+                    }
+                    .search__option{
+                        position: relative;
+                        margin-left: 10px;
+                        select{
+                            border: none;
+                            appearance: none;
+                            outline: none;
+                            padding: 5px 30px 5px 10px;
+                            background: #f5f5fa;
+                            color: #000;
+                            font-weight: 500;
+    
+                            option{
+                                outline: none;
+                                padding: 5px 0;
+                            }
+                        }
+                        i{
+                            position: absolute;
+                            right: 7px;
+                            top: 5px;
+                            color: #000;
+                        }
+                    }
+                    
+                }
             }
         }
     }

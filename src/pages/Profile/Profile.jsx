@@ -103,7 +103,7 @@ const Profile = () => {
                   </label>
                 </div>
                 <div className="profile__update col-6">
-                  <button onClick={handleOpenModal}>Change profile</button>
+                  <button onClick={handleOpenModal}>Update profile</button>
                 </div>
                 <div className="profile__update-password col-6">
                   <button onClick={modalChangePassword}>Change password</button>

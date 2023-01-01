@@ -15,12 +15,12 @@
 
         @include responsive(large) {
             .register__wrap {
-                width: 70%;
+                width: 75%;
             }
         }
         @include responsive(small) {
             .register__wrap {
-                width: unset;
+                width: 85%;
             }
         }
         .title {

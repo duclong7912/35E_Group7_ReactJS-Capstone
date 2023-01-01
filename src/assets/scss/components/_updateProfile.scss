@@ -20,6 +20,9 @@
             @include responsive(large) {
                 width: 65%;
             }
+            @include responsive(medium) {
+                width: 80%;
+            }
             @include responsive(small) {
                 width: 90%;
             }
