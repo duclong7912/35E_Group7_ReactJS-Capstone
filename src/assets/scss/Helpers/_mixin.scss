@@ -5,8 +5,12 @@
         font-size: 45px;
         position: relative;
         margin: 50px auto;
+        @include responsive(extra-large){
+            font-size: 40px;
+        }
         @include responsive(small){
-            font-size: 35px;
+            font-size: 30px;
+            margin: 50px auto 20px;
         }
 }
 
@@ -84,6 +88,111 @@
             }
 
             
+        }
+    }
+}
+
+@mixin card () {
+    .product__img{
+        height: 270px;
+        @include responsive(large){
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @include responsive(medium){
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+        }
+        img{
+            width: 100%;
+            @include responsive(large){
+                width: 340px;
+            }
+            @include responsive(medium){
+                width: 230px;
+            }
+            @include responsive(small) {
+                width: 260px;
+            }
+        }
+    }
+
+    .product__info{
+        padding: 0 15px;
+        h4{
+            color: $primary-color;
+            font-weight: 500;
+            height: 50px;
+            @include responsive(extra-large){
+                font-size: 20px;
+                height: 40px;
+            }
+            @include responsive(large) {
+                height: 20px;
+            }
+            @include responsive(medium) {
+                height: 40px;
+            }
+            @include responsive(small) {
+                font-size: 17px;
+                height: 30px;
+                margin-bottom: 0;
+            }
+        }
+        p{
+            height: 60px;
+            @include responsive(large) {
+                font-size: 16px;
+            }
+            @include responsive(medium){
+                font-size: 14px;
+                height: 55px;
+            }
+            @include responsive(small) {
+                font-size: 14px;
+                height: 50px;
+            }
+        }
+    }
+    .product__footer{
+        display: flex;
+        align-items: center;
+
+        a{
+            width: 50%;
+            @include button();
+            border-radius: 0 0 0 10px;
+            padding: 15px 0;
+            color: #000;
+            text-align: center;
+            font-weight: 600;
+            @include responsive(large) {
+                font-size: 16px;
+            }
+            @include responsive(medium){
+                padding: 10px 0;
+                font-size: 14px;
+            }
+        }
+        h6{
+            width: 50%;
+            font-weight: 700;
+            text-align: center;
+            font-size: 20px;
+            margin: 0;
+            padding: 16px 0;
+            background: #F4CAD4;
+            border-radius: 0 0 10px 0;
+            @include responsive(large) {
+                font-size: 19px;
+            }
+            @include responsive(medium){
+                padding: 10px 0;
+                font-size: 18px;
+            }
         }
     }
 }

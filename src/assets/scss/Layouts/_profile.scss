@@ -140,7 +140,6 @@
                 }
 
                 .profile__tabs-content{
-                    
                     h6{
                         color: $primary-color;
                     }
@@ -169,6 +168,48 @@
                         border-radius: 5px;
                         padding: 30px;
                         margin-bottom: 50px;
+                        position: relative;
+
+                        .deleteOrder{
+                            position: absolute;
+                            top: 10px;
+                            right: 10px;
+                            padding: 3px 10px;
+                            background: $primary-color;
+                            color: #fff;
+                            border-radius:50px;
+                            font-size: 12px;
+                            letter-spacing: 1px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .profile__tabs-product{
+                    .profile__tabs-item{
+                        margin: 15px 0;
+                        .profile__tabs-card{
+                            position: relative;
+                            background: #EA95AA;
+                            border-radius: 10px;
+                            @include card();
+                            .heart{
+                                position: absolute;
+                                top: 15px;
+                                right: 15px;
+                                i{
+                                    font-size: 25px;
+                                    color: $primary-color;
+                                    cursor: pointer;
+                                }
+                            }
+                            .product__info{
+                                h4{
+                                    text-align: center;
+                                    padding: 25px 0;
+                                }
+                            }
+                        }
                     }
                 }
 

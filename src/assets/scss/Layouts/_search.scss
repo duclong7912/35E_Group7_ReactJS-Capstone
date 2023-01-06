@@ -30,6 +30,10 @@
                 background: #fff;
                 padding: 20px 10px;
                 border-radius: 5px;
+                height: 430px;
+                @include responsive(large) {
+                    height: 80px
+                }
                     h1{
                         @include title();
                         margin: 0;
@@ -80,14 +84,27 @@
                 padding: 20px 10px;
                 border-radius: 5px;
                 margin-left: 20px;
+                @include responsive(extra-large) {
+                    padding: 20px 30px;
+                }
+                @include responsive(medium) {
+                    padding: 15px
+                }
                 .title{
                     h1{
                         @include title();
                         margin: 0;
                         font-size: 30px;
                         padding-bottom: 10px;
+                        @include responsive(large) {
+                            font-size: 35px;
+                        }
+                        @include responsive(small) {
+                            margin-top: 20px;
+                        }
                     }
                 }
+                
                 .search__filter{
                     display: flex;
                     align-items: center;
@@ -137,6 +154,28 @@
                         }
                     }
                     
+                }
+                .product__result{
+                    .result__content{
+                        .result__item{
+                            margin:  15px 0;
+                           .result__card{
+                                border-radius: 10px;
+                                background: #EA95AA;
+                                @include card();
+                                .product__info{
+                                    p{
+                                        @include responsive(medium) {
+                                            height: 67px;
+                                        }
+                                        @include responsive(small) {
+                                            height: 50px;
+                                        }
+                                    }
+                                }
+                           }
+                        }
+                    }
                 }
             }
         }

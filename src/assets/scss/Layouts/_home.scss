@@ -1,0 +1,132 @@
+.home {
+    padding-bottom: 50px;
+    background: #f0f2f5;
+    a{
+        color: #000;
+    }
+    .home__carousel{
+        .carousel__container {
+            width: 90%;
+            margin: auto;
+            @include responsive(large){
+                width: 95%;
+            }
+            @include responsive(small) {
+                width: 90%;
+            }
+            .carousel__content{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                @include responsive(small){
+                    flex-direction: column;
+                    justify-content: flex-start;
+                }
+                .carousel__left{
+                    width: 50%;
+                    @include responsive(large){
+                        width: 45%;
+                    }
+                    img{
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .carousel__right{
+                    width: 40%;
+                    @include responsive(large){
+                        width: 45%;
+                    }
+                    @include responsive(small){
+                        width: 100%;
+                    }
+                    @include responsive(small){
+                        height: 140px;
+                    }
+                    h4{
+                        font-weight: 600;
+                        color: $primary-color;
+                        font-size: 30px;
+                        @include responsive(large){
+                            font-size: 25px;
+                        }
+                        @include responsive(medium){
+                            font-size: 20px;
+                        }
+                        
+                    }
+                    p{
+                        font-size: 18px;
+                        @include responsive(large){
+                            font-size: 16px
+                        }
+                        @include responsive(medium){
+                            font-size: 14px;
+                        }
+                    }
+
+                    a{
+                        @include button();
+                        padding: 12px 35px;
+                        color: white;
+                        @include responsive(medium){
+                            padding: 8px 25px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    .home__product{
+        h1{
+            @include title();
+            @include responsive(extra-large) {
+                font-size: 40px;
+            }
+            @include responsive(medium) {
+                font-size: 35px;
+            }
+            @include responsive(small) {
+                font-size: 25px;
+                margin: 30px 0 20px;
+            }
+        }
+
+        .product__container{
+            width: 80%;
+            margin: auto;
+            @include responsive(extra-large) {
+                width: 95%;
+            }
+            @include responsive(small) {
+                width: 85%;
+            }
+            .product__content{
+                .product__item{
+                    margin: 15px 0;
+                    @include responsive(medium){
+                        padding: 0 10px;
+                    }
+                    .product__card{
+                        background: #EA95AA;
+                        border-radius: 10px;
+                        position: relative;
+                        .heart{
+                            position: absolute;
+                            top: 15px;
+                            right: 15px;
+                            i{
+                                font-size: 25px;
+                                color: $primary-color;
+                                cursor: pointer;
+                            }
+                        }
+                        @include card()
+                    }
+                }
+            }
+        }
+    }
+}

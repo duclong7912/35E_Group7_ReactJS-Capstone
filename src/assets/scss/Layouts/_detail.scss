@@ -1,0 +1,171 @@
+.detail {
+    padding: 80px 0 50px;
+    @include responsive(medium){
+        padding: 50px 0;
+    }
+    .detail__infoProduct{
+        width: 85%;
+        margin: auto;
+        @include responsive(large){
+            width: 90%;
+        }
+        .infoProduct__content{
+
+            @include responsive(medium){
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .infoProduct__left{
+                @include responsive(medium){
+                    max-width: 60%;
+                }
+                @include responsive(small){
+                    max-width: 90%;
+                }
+                border-radius: 10px;
+                background:#EA95AA;
+                @include responsive(extra-large){
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                img{
+                    width: 100%;
+                    @include responsive(medium){
+                        height: 230px;
+                        object-fit: contain;
+                    }
+                    @include responsive(small){
+                        height: 170px;
+                    }
+                }
+                
+            }
+
+            .infoProduct__right{
+                padding: 0 50px;
+                @include responsive(large){
+                    padding: 0 30px;
+                }
+                @include responsive(medium){
+                    margin-top: 20px;
+                    max-width: 100%;
+                }
+                @include responsive(small){
+                    padding: 0 20px;
+                }
+                .infoProDuct__info{
+                    h4{
+                        color: $primary-color;
+                        @include responsive(small){
+                            font-size: 20px;
+                        }
+                    }
+                    p{
+                        @include responsive(large){
+                            font-size: 15px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                .infoProDuct__size{
+                    h5{
+                        color: $primary-color;
+                        @include responsive(large){
+                            font-size: 16px;
+                        }
+                    }
+                    ul{
+                        li{
+                            background: #f0f2f5;
+                            display: inline-block;
+                            margin-right: 15px;
+                            padding: 5px 8px;
+                            cursor: pointer;
+                            font-weight: 500;
+                            transition: all .2s;
+                            width: 36px;
+                            @include responsive(large){
+                                margin-right: 10px;
+                            }
+                            @include responsive(small){
+                                margin-right: 7px;
+                                margin-bottom: 5px;
+                            }
+                        }
+                        li.active{
+                            background: #EA95AA;
+                        }
+                    }
+                }
+                .infoProDuct__buy{
+                    margin-top: 25px;
+                    @include responsive(large){
+                        margin-top: 10px;
+                    }
+                    h5{
+                        margin-bottom: 20px;
+                        @include responsive(large){
+                            margin-bottom: 15px;
+                        }
+                        i{
+                            margin-right: 5px;
+                        }
+                        color: $primary-color;
+                    }
+                    span.btn {
+                        padding: 4px 12px;
+                        background: $primary-color;
+                        border-radius: unset;
+                        color: #fff;
+                    }
+                    span.num {
+                        width: 30px;
+                        display: inline-block;
+                        text-align: center;
+                        font-weight: 600;
+                    }
+                    .infoProDuct__button{
+                        margin-top: 20px;
+                        @include responsive(large){
+                            margin-top: 15px
+                        }
+                        button{
+                            @include button();
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .detail__relateProduct{
+        h1{
+            @include title();
+        }
+
+        .relateProduct__container{
+            width: 80%;
+            margin: auto;
+            @include responsive(extra-large){
+                width: 95%;
+            }
+            @include responsive(small){
+                width: 90%;
+            }
+            .relateProduct__content{
+                .product__item{
+                    margin: 15px 0;
+                    .product__card{
+                        background: #EA95AA;
+                        border-radius: 10px;
+                        position: relative;
+                        @include card();
+                    }
+                }
+            }
+        }
+    }
+}

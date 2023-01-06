@@ -6,7 +6,8 @@ import avatar from '../../assets/img/avt.png'
 import { eraseCookie, removeLocalStorage, TOKEN, USER } from '../../util/config'
 import { profileAPI } from '../../redux/reducers/userReducer/userReducer'
 const Header = () => {
-  const { userLogin, profile } = useSelector(state => state.userReducer)
+  const { userLogin, profile } = useSelector(state => state.userReducer);
+  const {arrProductCart} = useSelector(state => state.productReducer);
   const [profileClick, setProfileClick] = useState(false);
   const [barsClick, setBarsClick] = useState(false)
   const dispatch = useDispatch();
@@ -35,10 +36,12 @@ const Header = () => {
       <div className="header__container">
         <input type="checkbox" id='check'/>
         <label htmlFor="check" onClick={handleBars}>
-          {barsClick ? <i class="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
+          {barsClick ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
         </label>
           <ul className='nav__list'>
-            <li className='active'><a href="">Home</a></li>
+            <li className='active'>
+              <NavLink to='/home'>Home</NavLink>
+            </li>
             <li><a href="">Men</a></li>
             <li><a href="">Women</a></li>
             <li><a href="">Kid</a></li>
@@ -57,7 +60,7 @@ const Header = () => {
             }
           </ul>
         <div className="header__content">
-          <NavLink to={"/home"} className="header__logo d-flex align-items-center">
+          <NavLink to={""} className="header__logo d-flex align-items-center">
             <img src={logo} alt="logo" />
             <span>cybersoft</span>
           </NavLink>
@@ -69,7 +72,7 @@ const Header = () => {
             </NavLink>
             <NavLink to={"/carts"} className="header__cart">
               <i className="fa-solid fa-cart-shopping"></i>
-              <span>0</span>
+              <span>{arrProductCart ? arrProductCart.length : '0'}</span>
             </NavLink>
             {userLogin ? <div className="header__profile">
               <img src={profile?.avatar} alt="profile" onClick={() => {setProfileClick(!profileClick)}}/>

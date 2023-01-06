@@ -25,7 +25,9 @@ root.render(
           <Route path="" element={<HomeTemplate />}>
             <Route index element={<Home />} />
             <Route path="home" element={<Home />} />
-            <Route path="detail" element={<Detail />} />
+            <Route path="detail">
+              <Route path=":id" element={<Detail/>} />
+            </Route>
             <Route path="carts" element={<Carts />} />
             <Route path="search" element={<Search />} />
             <Route path="profile" element={<Profile />} />
