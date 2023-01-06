@@ -1,0 +1,156 @@
+.cart{
+    min-height: 100vh;
+    background:#f0f2f5;
+    .title {
+        h1{
+            @include title();
+            margin: 0;
+            padding: 50px 0;
+            @include responsive(small) {
+                padding: 50px 0 20px;
+                margin: 0;
+            }
+        }
+    }
+    .cart__container{
+        margin: auto;
+        width: 90%;
+        @include responsive(medium) {
+            width: 95%;
+        }
+        .cart__content{
+            background: #fff;
+            border-radius: 10px;
+            padding: 50px 15px;
+            @include responsive(medium) {
+                padding: 50px 5px;
+            }
+            .table {
+                padding: 0 50px;
+
+                tr {
+                    border-radius: 5px;
+                    th{
+                        color: $primary-color;
+                        background-color: #f0f2f5;
+                        text-align: center;
+                        width: calc(100% / 7);
+                        border: none;
+                        @include responsive(medium) {
+                            padding: 12px 5px;
+                            font-size: 13px;
+                        }
+                        @include responsive(small) {
+                            width: unset;
+                            font-size: 9px;
+                        }
+                    }
+                    td{
+                        text-align: center;
+                        @include responsive(extra-large) {
+                            padding: 12px 0;
+                            &:nth-child(3){
+                                font-size: 13px;
+                            }
+                        }
+                        @include responsive(medium) {
+                            &:nth-child(3){
+                                font-size: 11px;
+                            }
+                            &:nth-child(5){
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+                        @include responsive(small) {
+                            font-size: 9px;
+                            &:nth-child(3){
+                                font-size: 9px;
+                                padding: 10px 0;
+                            }
+                            &:nth-child(5){
+                                padding: 5px 0;
+                            }
+                            &:nth-child(2){
+                                padding: 5px 0;
+                            }
+                        }
+                        img{
+                            width: 90px;
+                            height: 50px;
+                            object-fit: cover;
+                            @include responsive(medium) {
+                                width: 70px;
+                                height: 40px;
+                            }
+                            @include responsive(small) {
+                                width: 50px;
+                                height: 30px;
+                                object-fit: cover;
+                            }
+                        }
+                        span.btn{
+                            padding: 4px 10px;
+                            background: $primary-color;
+                            color: #fff;
+                            @include responsive(medium) {
+                                padding: 1px 7px;
+                            }
+                            @include responsive(small) {
+                                padding: 0 5px
+                            }
+                        }
+                        span.quantity{
+                            display: inline-block;
+                            text-align: center;
+                            font-weight: 500;
+                            width: 30px;
+                            @include responsive(medium) {
+                                width: 20px;
+                            }
+                            @include responsive(small) {
+                                width: 10px;
+                            }
+                        }
+                        i{
+                            color: $primary-color;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .empty{
+                text-align: center;
+                font-size: 20px;
+                color: $primary-color;
+                margin-top: 30px;
+                font-weight: 600;
+                @include responsive(medium) {
+                    font-size: 15px;
+                }
+                @include responsive(small) {
+                    font-size: 13px;
+                }
+            }
+
+            .btnSubmit{
+                margin-top: 30px;
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                button{
+                    @include button();
+                    padding: 12px 30px;
+                    @include responsive(medium) {
+                        padding: 10px 25px;
+                    }
+                    @include responsive(small) {
+                       padding: 8px 20px;
+                       font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}

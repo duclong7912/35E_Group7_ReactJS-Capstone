@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCategoryAPI, getAllProductAPI, getProductByCategoryAPI, getProductByKeywordAPI} from "../../redux/reducers/SearchReducer/searchReducer";
 import { useState } from "react";
 import { useNavigate, useSearchParams } from 'react-router-dom'
-
+import { filterProductAction, getAllCategoryAPI, getAllProductAPI, getProductByCategoryAPI, getProductByKeywordAPI } from "../../redux/reducers/ProductReducer/productReducer";
+import ShoeCard from "../../components/ShoeCard/ShoeCard";
+import _ from 'lodash';
 const Search = () => {
   
   const [values, setValues] = useState({
@@ -11,7 +12,7 @@ const Search = () => {
   })
   const [searchParam, setSearchParam] = useSearchParams()
   const [categoryID, setCategoryID] = useState(null)
-  const { arrCategory, arrProduct } = useSelector(state => state.searchReducer)
+  const { arrProduct, arrCategory } = useSelector(state => state.productReducer)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let keyword = searchParam.get('keyword');
@@ -88,6 +89,21 @@ const Search = () => {
       }
   }
 
+  const handleChangeSelect = (e) => {
+    const {value} = e.target;
+    if(value === 'low-high'){
+      const lowHigh = _.sortBy(arrProduct, ['price']);
+      const action = filterProductAction(lowHigh);
+      dispatch(action)
+    } else if (value === 'high-low'){
+      const highLow = _.orderBy(arrProduct,['price'],['desc']);
+      const action = filterProductAction(highLow);
+      dispatch(action)
+    } else {
+      getAllProduct();
+    }
+  }
+
   return (
     <div className="search">
       <div className="search__container">
@@ -123,20 +139,22 @@ const Search = () => {
                   <i className="fa-solid fa-filter"></i>
                   <span>Filter price by: </span>
                   <div className="search__option">
-                    <select type='select' id="select">
-                      <option value='default'>Select an option</option>
-                      <option value="low-high">Low to high</option>
-                      <option value="high-low">High to low</option>
+                    <select type='select' id="select" onChange={handleChangeSelect}>
+                      <option value='default' name='default'>Select an option</option>
+                      <option value="low-high" name='low-high'>Low to high</option>
+                      <option value="high-low" name='high-low'>High to low</option>
                     </select>
                     <i className="fa-solid fa-sort-down"></i>
                   </div>
                 </div>
               </div>
               <div className="product__result">
-                <div className="row">
-                  {arrProduct?.map((item, i) => {
-                    return <div className="col-4" key={i}>
-                      product {item.id}
+                <div className="result__content row">
+                  {arrProduct?.map((prod, i) => {
+                    return <div className="result__item col-12 col-sm-6 col-xl-4" key={i}>
+                      <div className="result__card">
+                        <ShoeCard prod={prod}/>
+                      </div>
                     </div>
                   })}
                 </div>

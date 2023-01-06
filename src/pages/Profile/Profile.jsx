@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { profileAPI, profileAction } from '../../redux/reducers/userReducer/userReducer';
+import { deleteOrderAPI, profileAPI, profileAction } from '../../redux/reducers/userReducer/userReducer';
 import Orders from '../../components/Order/Orders'
 import UpdateProfile from "../../components/UpdateProfile/UpdateProfile";
 import ModalChangePassword from '../../components/ModalChangePassword/ModalChangePassword';
 import { NavLink } from 'react-router-dom';
+import ShoeCard from '../../components/ShoeCard/ShoeCard';
+import { getProductFavoriteAPI } from '../../redux/reducers/ProductReducer/productReducer';
 const Profile = () => {
   const { profile } = useSelector(state => state.userReducer);
-
+  const { arrProductFavorite } = useSelector(state => state.productReducer)
   const [history, setHistory] = useState(true);
   const [favorite, setFavorite] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -17,7 +19,10 @@ const Profile = () => {
 
   useEffect(()=> {
     const actionProfile = profileAPI();
-    dispatch(actionProfile)
+    dispatch(actionProfile);
+
+    const actionFavorite = getProductFavoriteAPI();
+    dispatch(actionFavorite)
   },[])
 
   const handleFavorite = (e) => {
@@ -46,9 +51,19 @@ const Profile = () => {
     setChangePassword(true);
   }
 
-  const closeModal = (value) => {
-    setOpenModal(value)
-  }
+  const handleDeleteOrder = async (id) => {
+    const order = {
+      orderId: id,
+    }
+    return await deleteOrderAPI(order).
+    then(res => {
+      if(!res){
+        return
+      }
+      const actionProfile = profileAPI();
+      dispatch(actionProfile)
+    }).catch(err => console.log(err))
+  };
 
   return (
     <div className="profile">
@@ -123,14 +138,24 @@ const Profile = () => {
               <div className="profile__tabs-content">
                 {profile?.ordersHistory?.map((item, i) => {
                   return <div className='profile__tabs-info' key={i}>
+                      <div className="deleteOrder" onClick={() => handleDeleteOrder(item.id)}>delete</div>
                       <Orders item={item}/>
                   </div>
                 })}
               </div>
             }
             { favorite && 
-            <div className="profile__tabs-content">
-              
+            <div className="profile__tabs-product row">
+              {arrProductFavorite?.productsFavorite.map((prod, i) => {
+                return <div className="profile__tabs-item col-12 col-sm-6 col-lg-4" key={i}>
+                  <div className="profile__tabs-card">
+                    <div className="heart">
+                      <i className='fa-solid fa-heart'></i>
+                    </div>
+                    <ShoeCard prod={prod}/>
+                  </div>
+                </div>
+              })}
             </div>
             }
             </div>

@@ -19,7 +19,7 @@
 
                     &:nth-child(3), &:nth-child(4){
                         .messError {
-                            font-size: 12px;
+                            font-size: 15px;
                         }
                     }
                     
@@ -73,6 +73,11 @@
 
                     .messError {
                         font-size: 16px;
+                    }
+                    &:nth-child(3), &:nth-child(4){
+                        .messError {
+                            font-size: 12px;
+                        }
                     }
                 }
 

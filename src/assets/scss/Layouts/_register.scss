@@ -12,7 +12,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
+        .register__wrap{
+            width: 330px;
+        }
         @include responsive(large) {
             .register__wrap {
                 width: 75%;

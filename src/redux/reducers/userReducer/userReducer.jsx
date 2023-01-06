@@ -105,11 +105,13 @@ export const profileAPI = () => {
           Authorization: `Bearer ${token?.accessToken}`
       }
     }).catch(err => {
-      removeLocalStorage(USER);
-      eraseCookie(TOKEN);
-      if (err.response?.status === 401) {
+      if (err.response?.status === 401 || err.response?.status === 400) {
         history.push('/home');
       }
+      removeLocalStorage(USER);
+      eraseCookie(TOKEN);
+      alert("Login session has expired. Please log in again.");
+      window.location.reload();
     })
 
     if (result) {
@@ -117,15 +119,6 @@ export const profileAPI = () => {
       dispatch(action)
     }
   }
-}
-
-export const getProductFavouiteAPI = () => {
-
-   return async (dispatch) => {
-    const result = await axios({
-      
-    })
-   }
 }
 
 export const updateProfileAPI = (value) => {
@@ -153,5 +146,21 @@ export const changePasswordAPI = (value) => {
         Authorization: `Bearer ${getCookie(TOKEN)}`
       }
     })
+  }
+}
+
+export const deleteOrderAPI = async (value) => {
+  console.log(value);
+  try {
+    return await axios({
+      url: 'https://shop.cyberlearn.vn/api/Users/deleteOrder',
+      method: "POST",
+      data: value,
+      headers: {
+        Authorization: `Bearer ${getCookie(TOKEN)}`
+      }
+    })
+  } catch (error) {
+    console.log(error);
   }
 }
