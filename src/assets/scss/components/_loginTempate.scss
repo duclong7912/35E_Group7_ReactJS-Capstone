@@ -6,7 +6,7 @@
     justify-content: center;
 
     @include responsive(large) {
-        min-height: 600px;
+        min-height: 100vh;
     }
 
     .template__login-container{
