@@ -55,10 +55,6 @@ const Home = () => {
   };
 
   const renderHeart = (prod) => {
-    <i
-      className="fa-regular fa-heart"
-      onClick={() => handleLikeProduct(prod.id)}
-    ></i>
     if (arrProductFavorite) {
       if (
         arrProductFavorite?.productsFavorite.some((item) => item.id === prod.id)
